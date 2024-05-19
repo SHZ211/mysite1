@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Космический Туризм</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            background-image: url('https://th.bing.com/th/id/OIG4.XGheeUvuMGhHBOepR3gk?w=1024&h=1024&rs=1&pid=ImgDetMain');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        header {
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        nav {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+            transition: transform 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            color: #FFA500;
+            transform: scale(1.1);
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, background-color 0.3s, transform 0.3s;
+            max-height: 40px;
+            cursor: pointer;
+            position: relative;
+        }
+        .section:hover {
+            transform: scale(1.02);
+        }
+        .section.active {
+            max-height: 1000px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: max-height 0.5s ease-in, background-color 0.5s;
+        }
+        .section h2 {
+            color: #FFD700;
+            font-size: 1.4em;
+            margin: 0;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid #444;
+            border-radius: 10px;
+        }
+        .section p {
+            display: none;
+        }
+        .section.active p {
+            display: block;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+        .image {
+            float: left;
+            margin-right: 20px;
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .image-right {
+            float: right;
+            margin-left: 20px;
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .clear {
+            clear: both;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .contact-info {
+            display: none;
+        }
+        .contact-link {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #FFD700;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        .contact-link:hover {
+            background-color: #FFA500;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.addEventListener('click', function() {
+                    if (section.classList.contains('active')) {
+                        section.classList.remove('active');
+                    } else {
+                        sections.forEach(sec => sec.classList.remove('active'));
+                        section.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container fade-in">
+        <header>
+            <h1>Космос</h1>
+        </header>
+
+        <nav>
+            <a href="https://www.nasa.gov" target="_blank">NASA</a>
+            <a href="https://www.spacex.com" target="_blank">SpaceX</a>
+            <a href="https://www.blueorigin.com" target="_blank">Blue Origin</a>
+            <a href="https://www.esa.int" target="_blank">ESA</a>
+            <a href="https://www.roscosmos.ru" target="_blank">Роскосмос</a>
+            <a href="https://www.jaxa.jp" target="_blank">JAXA</a>
+        </nav>
+
+        <div id="intro" class="section">
+            <h2>Космические Новости</h2>
+            <img src="https://th.bing.com/th/id/OIG3.kpOLmFPGkn_0P1MMEPZI?pid=ImgGn" alt="Земля из космоса" class="image">
+            <p>Последние новости о достижениях в космических технологиях и миссиях. Узнайте о последних открытиях и запусках.</p>
+            <div class="clear"></div>
+        </div>
+
+        <div id="history" class="section">
+            <h2>Исторические Миссии</h2>
+            <img src="https://th.bing.com/th/id/OIG1.95jiI8h95dmeA3ZVk1ki?pid=ImgGn" alt="Международная космическая станция" class="image-right">
+            <p>История самых значимых космических миссий, которые изменили наше понимание Вселенной.</p>
+            <div class="clear"></div>
+        </div>
+
+        <div id="current" class="section">
+            <h2>Современные Исследования</h2>
+            <img src="https://th.bing.com/th/id/OIG3.hiy5u4P4rLnjKDTUgOi2?pid=ImgGn" alt="Астронавт в открытом космосе" class="image">
+            <p>Как современные технологии и исследования продвигают нас вперед в исследовании космоса и планет.</p>
+            <div class="clear"></div>
+        </div>
+
+        <div id="future" class="section">
+            <h2>Будущие Миссии</h2>
+            <p>Что нас ждет в будущем? О планируемых миссиях на Луну, Марс и за пределы нашей Солнечной системы.</p>
+        </div>
+
+        <div id="opportunities" class="section">
+            <h2>Возможности для Частных Лиц</h2>
+            <p>Как частные лица могут принять участие в космических миссиях и исследованиях. Возможности космического туризма.</p>
+        </div>
+
+        <div id="contact" class="section">
+            <h2>Связаться с нами</h2>
+            <p>Если у вас есть вопросы или вы хотите узнать больше, пожалуйста, свяжитесь с нами.</p>
+            <img src="https://th.bing.com/th/id/OIG2.qdX.Tg68u5zD0B12natB?pid=ImgGn" alt="Космический пейзаж" class="image">
+            <div class="clear"></div>
+            <a href="https://t.me/jvmShZ" class="contact-link">Связаться с нами</a>
+        </div>
+    </div>
+</body>
+</html>
